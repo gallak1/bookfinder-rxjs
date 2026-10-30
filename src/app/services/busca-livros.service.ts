@@ -8,14 +8,13 @@ import { LivrosResultado } from '../models/interfaces';
 })
 export class BuscaLivrosService {
     private readonly googleUrl = 'https://www.googleapis.com/books/v1/volumes';
-    private readonly googleKey = 'AIzaSyBslVXbvGILouoNyYe-Bm8GKPYjnAyDr5g';
 
     constructor(
         private http: HttpClient
     ) {}
 
     buscarLivros(pesquisa: string): Observable<LivrosResultado> {
-        return this.http.get<LivrosResultado>(`${this.googleUrl}?q=${pesquisa}&key=${this.googleKey}`)
+        return this.http.get<LivrosResultado>(`${this.googleUrl}?q=${pesquisa}`)
             // .pipe(
             //     tap((result) => console.log(result)), //controle do retorno da api, descomentar caso queira debugar
             //     map((result) => result.items)
