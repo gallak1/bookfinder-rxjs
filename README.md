@@ -1,59 +1,62 @@
-# BookfinderRxjs
+# Bookfinder RxJS
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.2.
+Aplicação de busca de livros desenvolvida para praticar o uso avançado de **RxJS com Signals no Angular**. Ela consulta a API do Google Books e apresenta capas, detalhes e sinopses dos livros encontrados.
 
-## Development server
+> Este projeto usa **Angular 22**, TypeScript e Angular CLI. Não usa React 19 nem Vite.
 
-To start a local development server, run:
+## Aprendizados aplicados
 
-```bash
-ng serve
-```
+- **Estado assíncrono com RxJS e Signals:** a busca é um fluxo reativo, e `toSignal` integra os resultados do Observable ao template Angular.
+- **Consumo de API com HttpClient:** um serviço Angular faz as requisições HTTP à API do Google Books e trabalha com os dados retornados.
+- **Pesquisa reativa com RxJS:** `startWith` inicia o fluxo com o valor atual do campo; `debounceTime` aguarda a digitação; `distinctUntilChanged` evita pesquisas repetidas; `switchMap` troca a requisição anterior pela mais recente; `map` transforma os dados para a interface; `catchError` trata falhas. `tap` pode ser usado para efeitos colaterais, como inspecionar respostas sem alterá-las, e há um exemplo comentado no serviço.
+- **Tipagem com TypeScript:** modelos e tipos são usados para representar os dados da API, os livros e os resultados, tornando o código mais claro e ajudando a detectar erros durante o desenvolvimento.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tecnologias
 
-## Code scaffolding
+- Angular 22
+- TypeScript
+- RxJS
+- Angular Signals
+- Angular HttpClient
+- API do Google Books
+- Vitest para testes unitários
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Requisitos
 
-```bash
-ng generate component component-name
-```
+- Node.js compatível com a versão do Angular CLI do projeto
+- npm
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Executar localmente
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Instale as dependências e inicie o servidor de desenvolvimento:
 
 ```bash
-ng test
+npm install
+npm run start
 ```
 
-## Running end-to-end tests
+Abra [http://localhost:4200](http://localhost:4200). A aplicação recarrega automaticamente quando os arquivos são alterados.
 
-For end-to-end (e2e) testing, run:
+## Testes
+
+Execute os testes unitários com:
 
 ```bash
-ng e2e
+npm test
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Build e publicação
 
-## Additional Resources
+Gere a versão de produção:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm run build
+```
+
+O build é gerado em `dist/bookfinder-rxjs`. Como o projeto está configurado com renderização no servidor (SSR), publique em um ambiente com suporte a Node.js. Após instalar as dependências de produção e gerar o build, inicie o servidor SSR com:
+
+```bash
+npm run serve:ssr:bookfinder-rxjs
+```
+
+Configure a plataforma de hospedagem para executar esse comando e direcionar o tráfego para a porta disponibilizada pelo ambiente. Também é possível publicar somente os arquivos estáticos em uma hospedagem estática, mas isso requer ajustar a configuração do build para desativar SSR.

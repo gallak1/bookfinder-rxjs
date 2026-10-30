@@ -1,0 +1,22 @@
+<section class="container">
+    <header>Que livro você procura?</header>
+    <div class="busca">
+        <input
+            type="search"
+            [formControl]="searchControl"
+            placeholder="Busque por assunto, autoria, nome..."
+        >
+    </div>
+    @if(listaLivros()?.length) {
+        <p>{{qntResultados()}} resultados encontrados.</p>
+    }
+    <div class="container-card">
+        @for(livro of listaLivros(); track livro.title) {
+            <div>
+                <app-livro [livro]="livro"></app-livro>
+            </div>
+        } @empty {
+            <app-empty-booklist-wpp></app-empty-booklist-wpp>
+        }
+    </div>
+</section>

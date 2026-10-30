@@ -1,0 +1,68 @@
+.card-livro {
+  display: flex;
+  width: 384px;
+  filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.2));
+  margin: 24px;
+  border-radius: 8px 0px 0px 8px;
+}
+
+img {
+  min-width: 198px;
+}
+
+.card {
+  display: flex;
+  width: 440px;
+  height: 310px;
+  filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.2));
+  margin: 24px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 18px -3px black;
+}
+
+.info-card {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 14px;
+  padding-right: 6px;
+  background: #FFFFFF;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+  justify-content: space-evenly;
+  align-items: baseline;
+  background-color: #304f30;
+}
+
+.titulo {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+  margin-top: 0;
+}
+
+.informacoes {
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+button {
+  background-color: #78ac78d9;
+  width: 156px;
+  height: 40px;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+}
+
+button:hover {
+  background: #3e6b3ed9;
+}

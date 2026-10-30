@@ -1,0 +1,18 @@
+<div class="card">
+  <img
+    src="{{ livro.thumbnail ?? 'capa-indisponivel.png'}}"
+    alt="{{livro.title}}">
+  <div class="info-card">
+    <p class="titulo">{{ livro.title }}</p>
+    <p class="informacoes"><strong>Autoria:</strong> {{ livro.authors ?? '---' }}</p>
+    <p class="informacoes"><strong>Publicação:</strong> {{ livro.publishedDate ?? '---' }}</p>
+    <p class="informacoes"><strong>Editora:</strong> {{ livro.publisher ?? '---' }}</p>
+    <button (click)="modalAberto.set(true)">Mais detalhes</button>
+  </div>
+</div>
+@if(modalAberto()) {
+  <div>
+    <app-modal-detalhes [livro]="livro" (mudouModal)="modalAberto.set($event)"></app-modal-detalhes>
+  </div>
+}
+
